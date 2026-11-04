@@ -14,7 +14,7 @@ flutter pub get
 flutter run --dart-define=NAARI_API_BASE=http://10.0.2.2:8000
 ```
 
-The Android debug build (`flutter build apk --debug`) and the iOS simulator build are tested with Flutter 3.41.9, the version pinned in `.fvmrc`, and the debug APK has been launched on an Android 16 emulator. Use that Flutter version: Flutter 3.47 rejects this project's Android Gradle Plugin version.
+The Android debug build (`flutter build apk --debug`) and the iOS simulator build are tested with Flutter 3.41.9, the version pinned in `.fvmrc`, and the debug APK has been launched on an Android 16 emulator. Use that Flutter version: Flutter 3.47 rejects this project's Gradle and Android Gradle Plugin versions.
 
 Android emulators reach a server on your computer at `10.0.2.2`. Release builds need your own signing setup; no signing keys are in this repository.
 
