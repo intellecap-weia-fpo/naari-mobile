@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logo.png" alt="NAARI logo" width="160"></p>
+
 # NAARI field app
 
 Flutter app for field teams running NAARI surveys, including offline capture and sync. Questions can be read aloud using the phone's own text-to-speech.
