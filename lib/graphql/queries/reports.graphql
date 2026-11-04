@@ -1,0 +1,175 @@
+query ReportStatistics {
+  submissionStatistics {
+    totalCount
+    completedCount
+    pendingCount
+    draftCount
+  }
+}
+
+query MySurveysReport($first: Int, $after: String) {
+  mySurveys(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        title
+        isActive
+        visibility
+        createdAt
+        submissionCount
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+query SurveySubmissionsReport($first: Int, $after: String) {
+  surveySubmissions(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        submittedAt
+        status
+        user {
+          username
+        }
+        survey {
+          id
+          title
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+query MySubmissionsReport($first: Int, $after: String, $status: SurveySubmissionStatusChoices) {
+  mySubmissions(first: $first, after: $after, status: $status) {
+    edges {
+      node {
+        id
+        submittedAt
+        status
+        survey {
+          id
+          title
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+query AllUsersReport($first: Int, $after: String, $isActive: Boolean) {
+  allUsers(first: $first, after: $after, isActive: $isActive) {
+    edges {
+      node {
+        id
+        username
+        email
+        firstName
+        lastName
+        isActive
+        isStaff
+        dateJoined
+        lastLogin
+        surveySubmissions {
+          edges {
+            node {
+              id
+              submittedAt
+              status
+              survey {
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+
+query SurveyAnalytics($surveyId: ID!) {
+  survey(id: $surveyId) {
+    id
+    title
+    description
+    createdAt
+    submissionCount
+    questions {
+      edges {
+        node {
+          id
+          text
+          questionType
+          isRequired
+          answers {
+            edges {
+              node {
+                id
+                textAnswer
+                selectedOptions {
+                  edges {
+                    node {
+                      id
+                      text
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    submissions {
+      edges {
+        node {
+          id
+          submittedAt
+          status
+          user {
+            username
+          }
+          answers {
+            edges {
+              node {
+                id
+                question {
+                  id
+                  text
+                  questionType
+                }
+                textAnswer
+                selectedOptions {
+                  edges {
+                    node {
+                      id
+                      text
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

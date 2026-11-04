@@ -1,0 +1,98 @@
+fragment SubmissionListItem on SubmissionNode {
+  id
+  localId
+  title
+  submittedAt
+  status
+  answers {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}
+
+query MySubmissionsList($first: Int, $after: String, $surveyId: ID) {
+  mySubmissions(first: $first, after: $after, surveyId: $surveyId) {
+    edges {
+      node {
+        ...SubmissionListItem
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+
+fragment SubmissionFields on SubmissionNode {
+  id
+  localId
+  title
+  submittedAt
+  survey {
+    id
+    title
+    description
+  }
+  status
+  answers {
+    edges {
+      node {
+        id
+        question {
+          id
+          text
+          questionType
+          order
+          page {
+            id
+            order
+            title
+            localizedTitle
+          }
+        }
+        textAnswer
+        otherText
+        selectedOptions {
+          edges {
+            node {
+              id
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query MySubmissions($first: Int, $after: String, $surveyId: ID) {
+  mySubmissions(first: $first, after: $after, surveyId: $surveyId) {
+    edges {
+      node {
+        ...SubmissionFields
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+
+query GetSubmissionById($id: ID!) {
+  submission(id: $id) {
+    ...SubmissionFields
+  }
+}
+
+query GetSubmissionByLocalId($localId: String!) {
+  submissionByLocalId(localId: $localId) {
+    ...SubmissionFields
+  }
+}

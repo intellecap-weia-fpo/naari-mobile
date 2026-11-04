@@ -1,0 +1,50 @@
+mutation CreateAccount(
+  $email: String!
+  $username: String!
+  $password: String!
+  $firstName: String
+  $lastName: String
+) {
+  createAccount(
+    email: $email
+    username: $username
+    password: $password
+    firstName: $firstName
+    lastName: $lastName
+  ) {
+    success
+    message
+    user {
+      id
+      username
+      email
+      firstName
+      lastName
+    }
+  }
+}
+
+mutation ForgotPassword($email: String!) {
+  forgotPassword(email: $email) {
+    success
+    message
+  }
+}
+
+mutation ResetPassword(
+  $uid: String!
+  $token: String!
+  $newPassword: String!
+) {
+  resetPassword(uid: $uid, token: $token, newPassword: $newPassword) {
+    success
+    message
+  }
+}
+
+mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
+  changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
+    success
+    message
+  }
+}

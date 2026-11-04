@@ -1,0 +1,2063 @@
+# This file was generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+"An object with an ID"
+interface Node {
+    "The ID of the object"
+    id: ID!
+}
+
+type BoardDirectorProfileNode implements Node {
+    createdAt: DateTime!
+    educationalQualification: String!
+    "The ID of the object"
+    id: ID!
+    name: String!
+    otherExperience: String!
+    totalYearsOfExperience: Int!
+    typeOfExperience: FpoBoardDirectorProfileTypeOfExperienceChoices!
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type BoardDirectorProfileNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [BoardDirectorProfileNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `BoardDirectorProfileNode` and its cursor."
+type BoardDirectorProfileNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: BoardDirectorProfileNode
+}
+
+type BusinessOperationsSubmissionNode implements Node {
+    accessibilityPercentage: Decimal
+    advisoryServices: Boolean
+    availabilityOfInputsPlace: FpoBusinessOperationsSubmissionAvailabilityOfInputsPlaceChoices
+    availabilityOfInputsPriceAffordability: FpoBusinessOperationsSubmissionAvailabilityOfInputsPriceAffordabilityChoices
+    availabilityOfInputsTimeliness: FpoBusinessOperationsSubmissionAvailabilityOfInputsTimelinessChoices
+    chilling: Boolean
+    cleaning: Boolean
+    contractFarming: Boolean
+    createdAt: DateTime!
+    creditFacilities: Boolean
+    customHiringCenters: Boolean
+    distanceOfOutputCollectionCentres: String!
+    electronicWeighingMachines: Boolean
+    gradingAndSorting: Boolean
+    "The ID of the object"
+    id: ID!
+    labelling: Boolean
+    packaging: Boolean
+    priceVolatilityOfProducts: FpoBusinessOperationsSubmissionPriceVolatilityOfProductsChoices!
+    processing: Boolean
+    qualityCheck: Boolean
+    soilTestingFacility: Boolean
+    storage: Boolean
+    transportationFacility: Boolean
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type CEOProfileSubmissionNode implements Node {
+    createdAt: DateTime!
+    "The ID of the object"
+    id: ID!
+    name: String!
+    "Number of years associated with the FPO"
+    numberOfYearsAssociated: Int!
+    otherExperienceType: String!
+    qualification: String!
+    totalYearsOfExperience: Int!
+    typeOfExperience: FpoCEOProfileSubmissionTypeOfExperienceChoices!
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type ChangePassword {
+    message: String
+    success: Boolean
+}
+
+type ComplianceDetailsSubmissionNode implements Node {
+    actUnderRegistered: FpoComplianceDetailsSubmissionActUnderRegisteredChoices!
+    commencementDate: Date
+    commencementPlace: String!
+    commencementRegNo: String!
+    createdAt: DateTime!
+    dateOfRegistration: Date!
+    gstDate: Date
+    gstPlace: String!
+    gstRegNo: String!
+    "The ID of the object"
+    id: ID!
+    incorporationDate: Date
+    incorporationPlace: String!
+    incorporationRegNo: String!
+    permanentAccountNumber: String!
+    placeOfRegistration: String!
+    registrationNo: String!
+    taxAccountNumber: String!
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type CreateAccount {
+    message: String
+    success: Boolean
+    user: UserType
+}
+
+type CreateBoardDirectorProfileMutation {
+    directors: [BoardDirectorProfileNode]
+    errors: [String]
+    success: Boolean
+}
+
+type CreateBusinessOperationsSubmissionMutation {
+    errors: [String]
+    submission: BusinessOperationsSubmissionNode
+    success: Boolean
+}
+
+type CreateCEOProfileSubmissionMutation {
+    errors: [String]
+    submission: CEOProfileSubmissionNode
+    success: Boolean
+}
+
+type CreateComplianceDetailsSubmissionMutation {
+    errors: [String]
+    submission: ComplianceDetailsSubmissionNode
+    success: Boolean
+}
+
+type CreateFPODetailsSubmissionMutation {
+    errors: [String]
+    submission: FPODetailsSubmissionNode
+    success: Boolean
+}
+
+type CreateFPOMutation {
+    errors: [String]
+    fpo: FPONode
+    success: Boolean
+}
+
+type CreateFinancialDetailsSubmissionV2Mutation {
+    errors: [String]
+    submission: FinancialDetailsSubmissionV2Node
+    success: Boolean
+}
+
+type CreateGovernanceSubmissionMutation {
+    errors: [String]
+    submission: GovernanceSubmissionNode
+    success: Boolean
+}
+
+type CreateProcessesSystemsSubmissionMutation {
+    errors: [String]
+    submission: ProcessesSystemsSubmissionNode
+    success: Boolean
+}
+
+type CreateSubmissionMutation {
+    errors: [String]
+    submission: SubmissionNode
+    success: Boolean
+}
+
+type CreateSustainableActivitiesSubmissionMutation {
+    errors: [String]
+    submission: SustainableActivitiesSubmissionNode
+    success: Boolean
+}
+
+type CustomObtainJSONWebToken {
+    payload: GenericScalar!
+    refreshExpiresIn: Int!
+    refreshToken: String!
+    token: String!
+}
+
+type DeleteJSONWebTokenCookie {
+    deleted: Boolean!
+}
+
+type DeleteRefreshTokenCookie {
+    deleted: Boolean!
+}
+
+type FPODetailsSubmissionNode implements Node {
+    ageOfFpoYears: Float!
+    createdAt: DateTime!
+    dateOfCommencement: Date!
+    dateOfIncorporation: Date!
+    dealsThroughPgsFigs: Boolean
+    district: String!
+    farmersTransacted: Int
+    grantMakingOrganization: String!
+    "The ID of the object"
+    id: ID!
+    nameOfProducerOrganization: String!
+    numPgsFigs: Int
+    otherPromotingAgencyType: String!
+    promotingAgencyName: String!
+    receivedGrants: Boolean
+    registeredAddress: String!
+    sizeOfFpoFy2122: Int
+    sizeOfFpoFy2223: Int
+    sizeOfFpoFy2324: Int
+    state: String!
+    supportedByPromotingAgency: Boolean
+    targetSizeOfFpo: Int
+    typeOfFpo: FpoFPODetailsSubmissionTypeOfFpoChoices!
+    typeOfProducerOrganization: FpoFPODetailsSubmissionTypeOfProducerOrganizationChoices!
+    typeOfPromotingAgency: FpoFPODetailsSubmissionTypeOfPromotingAgencyChoices
+    updatedAt: DateTime!
+    womenMembers: Int
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type FPONode implements Node {
+    addressLine1: String!
+    addressLine2: String!
+    alternatePhone: String!
+    city: String!
+    createdAt: DateTime!
+    createdBy: UserNode
+    district: String!
+    email: String!
+    "The ID of the object"
+    id: ID!
+    isActive: Boolean!
+    logo: String
+    name: String!
+    phone: String!
+    pincode: String!
+    state: String!
+    updatedAt: DateTime!
+    yearlySubmissions(after: String, before: String, financialYear: String, first: Int, fpo_Name: String, fpo_Name_Icontains: String, last: Int, offset: Int, status: FpoYearlySubmissionStatusChoices): YearlySubmissionNodeConnection!
+}
+
+type FPONodeConnection {
+    "Contains the nodes in this connection."
+    edges: [FPONodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `FPONode` and its cursor."
+type FPONodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: FPONode
+}
+
+type FPOReportDataType {
+    activeMembershipPct: Float
+    category: String
+    crops: String
+    fpoDetails: GenericScalar
+    fpoName: String
+    indicators: GenericScalar
+    location: String
+    quantityProcured: Float
+    sectionScores: GenericScalar
+    size: String
+    submissionId: ID
+    totalScore: Float
+}
+
+type FinancialDetailsSubmissionV2Node implements Node {
+    "Cash/Cheque dealing as % of total revenue"
+    cashChequePercentage: Decimal!
+    createdAt: DateTime!
+    "Credit default loan amount (INR)"
+    creditDefaultAmount: Decimal
+    "Name of lender for credit default"
+    creditDefaultLender: String
+    "Year of credit default"
+    creditDefaultYear: String
+    "Accounts Payable current year (INR)"
+    currentYearAccountsPayable: Decimal!
+    "Accounts Receivable current year (INR)"
+    currentYearAccountsReceivable: Decimal!
+    "Assets current year (INR)"
+    currentYearAssets: Decimal!
+    "Closing Inventory current year (INR)"
+    currentYearClosingInventory: Decimal!
+    "Cost of Goods Sold current year (INR)"
+    currentYearCogs: Decimal!
+    "Current Assets current year (INR)"
+    currentYearCurrentAssets: Decimal!
+    "Current Liabilities current year (INR)"
+    currentYearCurrentLiabilities: Decimal!
+    "Gross profit current year (INR)"
+    currentYearGrossProfit: Decimal!
+    "Name of products for current year institutional buying"
+    currentYearInstitutionalProducts: String
+    "Institutional buying revenue current year (INR)"
+    currentYearInstitutionalRevenue: Decimal!
+    "Name of lender current year"
+    currentYearLenderName: String
+    "Liabilities current year (INR)"
+    currentYearLiabilities: Decimal!
+    "Loan amount current year (INR)"
+    currentYearLoanAmount: Decimal
+    "Matching Grant current year (INR)"
+    currentYearMatchingGrant: Decimal
+    "Net profit current year (INR)"
+    currentYearNetProfit: Decimal!
+    "Opening Inventory current year (INR)"
+    currentYearOpeningInventory: Decimal!
+    "Name of products for current year revenue"
+    currentYearProducts: String
+    "Project Grant current year (INR)"
+    currentYearProjectGrant: Decimal
+    "Quantity procured current year (Metric tonnes)"
+    currentYearQuantityProcured: Decimal!
+    "Name of products for current year quantity procured"
+    currentYearQuantityProducts: String
+    "Name of products for current year retail buying"
+    currentYearRetailProducts: String
+    "Retail buying revenue current year (INR)"
+    currentYearRetailRevenue: Decimal!
+    "Revenue for current financial year (INR)"
+    currentYearRevenue: Decimal!
+    "Share capital current year (INR)"
+    currentYearShareCapital: Decimal!
+    "Number of shareholders current year"
+    currentYearShareholders: Int!
+    "Name of products for current year wholesale buying"
+    currentYearWholesaleProducts: String
+    "Wholesale buying revenue current year (INR)"
+    currentYearWholesaleRevenue: Decimal!
+    "Difference in Days Accounts Payable and Days Accounts Receivable"
+    daysPayableReceivableDifference: Int!
+    "Difference between Gross and Net Profit Margin (%)"
+    grossNetProfitMarginDifference: Decimal!
+    "The ID of the object"
+    id: ID!
+    "History of Institutional Lending in last 2 financial years"
+    institutionalLendingHistory: String
+    "JSON field containing detailed loan information"
+    loanDetails: JSONString!
+    "Operating margin current year (%)"
+    operatingMarginCurrentYear: Decimal!
+    "Accounts Payable previous year (INR)"
+    previousYearAccountsPayable: Decimal!
+    "Accounts Receivable previous year (INR)"
+    previousYearAccountsReceivable: Decimal!
+    "Assets previous year (INR)"
+    previousYearAssets: Decimal!
+    "Closing Inventory previous year (INR)"
+    previousYearClosingInventory: Decimal!
+    "Cost of Goods Sold previous year (INR)"
+    previousYearCogs: Decimal!
+    "Current Assets previous year (INR)"
+    previousYearCurrentAssets: Decimal!
+    "Current Liabilities previous year (INR)"
+    previousYearCurrentLiabilities: Decimal!
+    "Gross profit previous year (INR)"
+    previousYearGrossProfit: Decimal!
+    "Name of products for previous year institutional buying"
+    previousYearInstitutionalProducts: String
+    "Institutional buying revenue previous year (INR)"
+    previousYearInstitutionalRevenue: Decimal!
+    "Name of lender previous year"
+    previousYearLenderName: String
+    "Liabilities previous year (INR)"
+    previousYearLiabilities: Decimal!
+    "Loan amount previous year (INR)"
+    previousYearLoanAmount: Decimal
+    "Matching Grant previous year (INR)"
+    previousYearMatchingGrant: Decimal
+    "Net profit previous year (INR)"
+    previousYearNetProfit: Decimal!
+    "Opening Inventory previous year (INR)"
+    previousYearOpeningInventory: Decimal!
+    "Name of products for previous year revenue"
+    previousYearProducts: String
+    "Project Grant previous year (INR)"
+    previousYearProjectGrant: Decimal
+    "Quantity procured previous year (Metric tonnes)"
+    previousYearQuantityProcured: Decimal!
+    "Name of products for previous year quantity procured"
+    previousYearQuantityProducts: String
+    "Name of products for previous year retail buying"
+    previousYearRetailProducts: String
+    "Retail buying revenue previous year (INR)"
+    previousYearRetailRevenue: Decimal!
+    "Revenue for previous financial year (INR)"
+    previousYearRevenue: Decimal!
+    "Share capital previous year (INR)"
+    previousYearShareCapital: Decimal!
+    "Number of shareholders previous year"
+    previousYearShareholders: Int!
+    "Name of products for previous year wholesale buying"
+    previousYearWholesaleProducts: String
+    "Wholesale buying revenue previous year (INR)"
+    previousYearWholesaleRevenue: Decimal!
+    "Target revenue (INR)"
+    targetRevenue: Decimal
+    "Total debt as of today (INR)"
+    totalDebtToday: Decimal!
+    "Accounts Payable 2 years back (INR)"
+    twoYearsBackAccountsPayable: Decimal!
+    "Accounts Receivable 2 years back (INR)"
+    twoYearsBackAccountsReceivable: Decimal!
+    "Assets 2 years back (INR)"
+    twoYearsBackAssets: Decimal!
+    "Closing Inventory 2 years back (INR)"
+    twoYearsBackClosingInventory: Decimal!
+    "Cost of Goods Sold 2 years back (INR)"
+    twoYearsBackCogs: Decimal!
+    "Current Assets 2 years back (INR)"
+    twoYearsBackCurrentAssets: Decimal!
+    "Current Liabilities 2 years back (INR)"
+    twoYearsBackCurrentLiabilities: Decimal!
+    "Gross profit 2 years back (INR)"
+    twoYearsBackGrossProfit: Decimal!
+    "Name of products for 2 years back institutional buying"
+    twoYearsBackInstitutionalProducts: String
+    "Institutional buying revenue 2 years back (INR)"
+    twoYearsBackInstitutionalRevenue: Decimal!
+    "Name of lender 2 years back"
+    twoYearsBackLenderName: String
+    "Liabilities 2 years back (INR)"
+    twoYearsBackLiabilities: Decimal!
+    "Loan amount 2 years back (INR)"
+    twoYearsBackLoanAmount: Decimal
+    "Matching Grant 2 years back (INR)"
+    twoYearsBackMatchingGrant: Decimal
+    "Net profit 2 years back (INR)"
+    twoYearsBackNetProfit: Decimal!
+    "Opening Inventory 2 years back (INR)"
+    twoYearsBackOpeningInventory: Decimal!
+    "Name of products for 2 years back revenue"
+    twoYearsBackProducts: String
+    "Project Grant 2 years back (INR)"
+    twoYearsBackProjectGrant: Decimal
+    "Quantity procured 2 years back (Metric tonnes)"
+    twoYearsBackQuantityProcured: Decimal!
+    "Name of products for 2 years back quantity procured"
+    twoYearsBackQuantityProducts: String
+    "Name of products for 2 years back retail buying"
+    twoYearsBackRetailProducts: String
+    "Retail buying revenue 2 years back (INR)"
+    twoYearsBackRetailRevenue: Decimal!
+    "Revenue for 2 years back financial year (INR)"
+    twoYearsBackRevenue: Decimal!
+    "Share capital 2 years back (INR)"
+    twoYearsBackShareCapital: Decimal!
+    "Number of shareholders 2 years back"
+    twoYearsBackShareholders: Int!
+    "Name of products for 2 years back wholesale buying"
+    twoYearsBackWholesaleProducts: String
+    "Wholesale buying revenue 2 years back (INR)"
+    twoYearsBackWholesaleRevenue: Decimal!
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type FinancialDetailsSubmissionV2NodeConnection {
+    "Contains the nodes in this connection."
+    edges: [FinancialDetailsSubmissionV2NodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `FinancialDetailsSubmissionV2Node` and its cursor."
+type FinancialDetailsSubmissionV2NodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: FinancialDetailsSubmissionV2Node
+}
+
+type ForgotPassword {
+    message: String
+    success: Boolean
+}
+
+type GovernanceSubmissionNode implements Node {
+    annualGeneralBodyMeetings: Int!
+    bodMeetingsLastFinancialYear: Int!
+    createdAt: DateTime!
+    "The ID of the object"
+    id: ID!
+    minutesMaintenance: FpoGovernanceSubmissionMinutesMaintenanceChoices!
+    numBods: Int!
+    numWomenBods: Int!
+    secondLineManagement: FpoGovernanceSubmissionSecondLineManagementChoices
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type DeleteAccount {
+    success: Boolean!
+    message: String!
+}
+
+type Mutation {
+    deleteAccount(password: String!): DeleteAccount
+    createAccount(email: String!, firstName: String, lastName: String, password: String!, username: String!): CreateAccount
+    createBoardDirectorProfiles(directors: [BoardDirectorProfileInput]!, financialYear: String!, fpoId: ID!): CreateBoardDirectorProfileMutation
+    createBusinessOperationsSubmission(financialYear: String!, fpoId: ID!, input: BusinessOperationsSubmissionInput!): CreateBusinessOperationsSubmissionMutation
+    createCeoProfileSubmission(financialYear: String!, fpoId: ID!, input: CEOProfileSubmissionInput!): CreateCEOProfileSubmissionMutation
+    createComplianceDetailsSubmission(financialYear: String!, fpoId: ID!, input: ComplianceDetailsSubmissionInput!): CreateComplianceDetailsSubmissionMutation
+    createFinancialDetailsSubmissionV2(financialYear: String!, fpoId: ID!, input: FinancialDetailsSubmissionV2Input!): CreateFinancialDetailsSubmissionV2Mutation
+    createFpo(addressLine1: String!, addressLine2: String, alternatePhone: String, city: String!, district: String!, email: String!, logo: String, name: String!, phone: String!, pincode: String!, state: String!): CreateFPOMutation
+    createFpoDetailsSubmission(financialYear: String!, fpoId: ID, input: FPODetailsSubmissionInput!): CreateFPODetailsSubmissionMutation
+    createGovernanceSubmission(financialYear: String!, fpoId: ID!, input: GovernanceSubmissionInput!): CreateGovernanceSubmissionMutation
+    createProcessesSystemsSubmission(financialYear: String!, fpoId: ID!, input: ProcessesSystemsSubmissionInput!): CreateProcessesSystemsSubmissionMutation
+    createSubmission(
+        "Geographic latitude coordinate (optional)"
+        latitude: Float,
+        "Client-generated local UUID for offline sync"
+        localId: String,
+        "Geographic longitude coordinate (optional)"
+        longitude: Float,
+        status: String,
+        surveyId: ID!
+    ): CreateSubmissionMutation
+    createSustainableActivitiesSubmission(financialYear: String!, fpoId: ID!, input: SustainableActivitiesSubmissionInput!): CreateSustainableActivitiesSubmissionMutation
+    deleteRefreshTokenCookie: DeleteRefreshTokenCookie
+    forgotPassword(email: String!): ForgotPassword
+    changePassword(newPassword: String!, oldPassword: String!): ChangePassword
+    logout: DeleteJSONWebTokenCookie
+    refreshToken(refreshToken: String): Refresh
+    resetPassword(newPassword: String!, token: String!, uid: String!): ResetPassword
+    saveAnswer(
+        "Text entered when user selects 'Other' option"
+        otherText: String,
+        questionId: ID!,
+        selectedOptionIds: [ID],
+        submissionId: ID!,
+        textAnswer: String
+    ): SaveAnswerMutation
+    signIn(password: String!, username: String!): CustomObtainJSONWebToken
+    submitSurvey(
+        answers: [AnswerInput]!,
+        "Version of the mobile app (APK) submitting the survey"
+        appVersion: String,
+        language: String,
+        "Geographic latitude coordinate (optional)"
+        latitude: Float,
+        "Client-generated local UUID for offline sync"
+        localId: String,
+        "Geographic longitude coordinate (optional)"
+        longitude: Float,
+        status: String,
+        "ID of existing draft submission to update"
+        submissionId: ID,
+        surveyId: ID!
+    ): SubmitSurveyMutation
+    verifyToken(token: String): Verify
+}
+
+type OptionConditionNode implements Node {
+    "Type of condition to evaluate"
+    conditionType: SurveyOptionConditionConditionTypeChoices!
+    "The ID of the object"
+    id: ID!
+    "Logical operator to combine multiple conditions"
+    logicOperator: SurveyOptionConditionLogicOperatorChoices!
+    "Option that this condition applies to"
+    option: QuestionOptionNode!
+    order: Int!
+    "Question whose answer will be evaluated"
+    targetQuestion: QuestionNode!
+    "Value to compare against (not needed for empty/not_empty conditions)"
+    value: String
+}
+
+type OptionWarningTranslationNode implements Node {
+    createdAt: DateTime!
+    "The ID of the object"
+    id: ID!
+    language: SurveyOptionWarningTranslationLanguageChoices!
+    "Translated warning message"
+    message: String!
+    option: QuestionOptionNode!
+    updatedAt: DateTime!
+    "Which warning condition this translation is for"
+    warningType: SurveyOptionWarningTranslationWarningTypeChoices!
+}
+
+"The Relay compliant `PageInfo` type, containing data necessary to paginate this connection."
+type PageInfo {
+    "When paginating forwards, the cursor to continue."
+    endCursor: String
+    "When paginating forwards, are there more items?"
+    hasNextPage: Boolean!
+    "When paginating backwards, are there more items?"
+    hasPreviousPage: Boolean!
+    "When paginating backwards, the cursor to continue."
+    startCursor: String
+}
+
+type ProcessesSystemsSubmissionNode implements Node {
+    accountsAndMis: FpoProcessesSystemsSubmissionAccountsAndMisChoices!
+    booksAndRecordsUpToDate: FpoProcessesSystemsSubmissionBooksAndRecordsUpToDateChoices!
+    createdAt: DateTime!
+    creditRecordOfFpo: FpoProcessesSystemsSubmissionCreditRecordOfFpoChoices!
+    "The ID of the object"
+    id: ID!
+    insuranceOfStock: FpoProcessesSystemsSubmissionInsuranceOfStockChoices!
+    penaltiesLeviedBoardMeeting: Boolean!
+    reconciliationOfStocks: FpoProcessesSystemsSubmissionReconciliationOfStocksChoices!
+    statutoryFillings: FpoProcessesSystemsSubmissionStatutoryFillingsChoices!
+    updatedAt: DateTime!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type Query {
+    accessibleSurveys(after: String, before: String, createdBy_Username: String, createdBy_Username_Icontains: String, endDate: Date, endDate_Gt: Date, endDate_Gte: Date, endDate_Isnull: Boolean, endDate_Lt: Date, endDate_Lte: Date, first: Int, isActive: Boolean, last: Int, offset: Int, title: String, title_Icontains: String, title_Istartswith: String, visibility: SurveySurveyVisibilityChoices): SurveyNodeConnection
+    allFinancialDetailsV2(after: String, before: String, first: Int, last: Int, offset: Int, yearlySubmission_FinancialYear: String, yearlySubmission_Fpo_Name: String, yearlySubmission_Fpo_Name_Icontains: String): FinancialDetailsSubmissionV2NodeConnection
+    allFpos(after: String, before: String, district: String, district_Icontains: String, first: Int, isActive: Boolean, last: Int, name: String, name_Icontains: String, offset: Int, state: String, state_Icontains: String): FPONodeConnection
+    allMyFpos(after: String, before: String, district: String, district_Icontains: String, first: Int, isActive: Boolean, last: Int, name: String, name_Icontains: String, offset: Int, state: String, state_Icontains: String): FPONodeConnection
+    allSurveys(after: String, before: String, createdBy_Username: String, createdBy_Username_Icontains: String, endDate: Date, endDate_Gt: Date, endDate_Gte: Date, endDate_Isnull: Boolean, endDate_Lt: Date, endDate_Lte: Date, first: Int, isActive: Boolean, last: Int, offset: Int, title: String, title_Icontains: String, title_Istartswith: String, visibility: SurveySurveyVisibilityChoices): SurveyNodeConnection
+    allUsers(after: String, before: String, email: String, email_Icontains: String, first: Int, firstName: String, firstName_Icontains: String, isActive: Boolean, isStaff: Boolean, last: Int, lastName: String, lastName_Icontains: String, offset: Int, username: String, username_Icontains: String, username_Istartswith: String): UserNodeConnection
+    financialDetailsSubmissionV2(
+        "The ID of the object"
+        id: ID!
+    ): FinancialDetailsSubmissionV2Node
+    fpo(
+        "The ID of the object"
+        id: ID!
+    ): FPONode
+    getFpoReportData(submissionId: ID!): FPOReportDataType
+    getSubmission(financialYear: String!, fpoId: ID!): YearlySubmissionNode
+    hello: String
+    me: UserType
+    myFpo: FPONode
+    mySubmissions(after: String, before: String, first: Int, last: Int, offset: Int, status: SurveySubmissionStatusChoices, submittedAt: DateTime, submittedAt_Date: DateTime, submittedAt_Gt: DateTime, submittedAt_Lt: DateTime, surveyId: ID): SubmissionNodeConnection
+    mySurveys(after: String, before: String, createdBy_Username: String, createdBy_Username_Icontains: String, endDate: Date, endDate_Gt: Date, endDate_Gte: Date, endDate_Isnull: Boolean, endDate_Lt: Date, endDate_Lte: Date, first: Int, isActive: Boolean, last: Int, offset: Int, title: String, title_Icontains: String, title_Istartswith: String, visibility: SurveySurveyVisibilityChoices): SurveyNodeConnection
+    question(
+        "The ID of the object"
+        id: ID!
+    ): QuestionNode
+    questionCondition(
+        "The ID of the object"
+        id: ID!
+    ): QuestionConditionNode
+    questionOption(
+        "The ID of the object"
+        id: ID!
+    ): QuestionOptionNode
+    submission(
+        "The ID of the object"
+        id: ID!
+    ): SubmissionNode
+    submissionByLocalId(localId: String!): SubmissionNode
+    submissionStatistics: SubmissionStatsType
+    survey(id: ID!, language: String): SurveyNode
+    surveyPage(
+        "The ID of the object"
+        id: ID!
+    ): SurveyPageNode
+    surveySubmissions(after: String, before: String, first: Int, last: Int, offset: Int, status: SurveySubmissionStatusChoices, submittedAt: DateTime, submittedAt_Date: DateTime, submittedAt_Gt: DateTime, submittedAt_Lt: DateTime): SubmissionNodeConnection
+    user(
+        "The ID of the object"
+        id: ID!
+    ): UserNode
+    yearlySubmission(
+        "The ID of the object"
+        id: ID!
+    ): YearlySubmissionNode
+}
+
+"GraphQL node for question conditions"
+type QuestionConditionNode implements Node {
+    "Type of condition to evaluate"
+    conditionType: SurveyQuestionConditionConditionTypeChoices!
+    "The ID of the object"
+    id: ID!
+    "Logical operator to combine multiple conditions"
+    logicOperator: SurveyQuestionConditionLogicOperatorChoices!
+    order: Int!
+    "Question that this condition applies to"
+    question: QuestionNode!
+    "Question whose answer will be evaluated"
+    targetQuestion: QuestionNode!
+    "Value to compare against (not needed for empty/not_empty conditions)"
+    value: String
+}
+
+type QuestionNode implements Node {
+    answers(after: String, before: String, first: Int, last: Int, offset: Int): SubmissionAnswerNodeConnection!
+    availableLanguages: [String]
+    conditions: [QuestionConditionNode]
+    "Optional expression/flag used by evaluators (primarily for consent questions)"
+    evaluatorCondition: String
+    "If set, this question's options are filtered/mapped from the selected options of the referenced question"
+    filterOptionsQuestion: QuestionNode
+    "Optional group name for organizing related questions"
+    group: String
+    "Optional hint text to help respondents answer the question (max 1000 characters)"
+    hint: String
+    "The ID of the object"
+    id: ID!
+    isConditional: Boolean
+    isRequired: Boolean!
+    "Unique identifier for this question within the survey (used in template variables)"
+    key: String
+    localizedHint: String
+    localizedText: String
+    "Maximum length for text inputs"
+    maxLength: Int
+    "Maximum value for number inputs"
+    maxValue: Decimal
+    "Minimum length for text inputs"
+    minLength: Int
+    "Minimum value for number inputs"
+    minValue: Decimal
+    options(after: String, before: String, first: Int, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, text: String, text_Icontains: String): QuestionOptionNodeConnection!
+    "If set, this question's options are filtered/mapped from the selected options of the referenced question"
+    optionsFilteredDependents(after: String, before: String, filterOptionsQuestion: ID, filterOptionsQuestion_Isnull: Boolean, first: Int, isRequired: Boolean, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, questionType: SurveyQuestionQuestionTypeChoices, text_Icontains: String): QuestionNodeConnection!
+    order: Int!
+    page: SurveyPageNode
+    "Optional sub-questions that appear when this option is selected"
+    parentOptions(after: String, before: String, first: Int, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, text: String, text_Icontains: String): QuestionOptionNodeConnection!
+    questionType: SurveyQuestionQuestionTypeChoices!
+    survey: SurveyNode!
+    "Question whose answer will be used as the title for submissions"
+    surveysAsRenderField(after: String, before: String, createdBy_Username: String, createdBy_Username_Icontains: String, endDate: Date, endDate_Gt: Date, endDate_Gte: Date, endDate_Isnull: Boolean, endDate_Lt: Date, endDate_Lte: Date, first: Int, isActive: Boolean, last: Int, offset: Int, title: String, title_Icontains: String, title_Istartswith: String, visibility: SurveySurveyVisibilityChoices): SurveyNodeConnection!
+    "Question text must be at least 5 characters long"
+    text: String!
+    "Custom error message for validation"
+    validationMessage: String
+    "Regex pattern for custom validation"
+    validationPattern: String
+}
+
+type QuestionNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [QuestionNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `QuestionNode` and its cursor."
+type QuestionNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: QuestionNode
+}
+
+type QuestionOptionNode implements Node {
+    conditions: [OptionConditionNode]
+    hasSubQuestion: Boolean
+    "The ID of the object"
+    id: ID!
+    isConditional: Boolean
+    localizedOptionWarning: JSONString
+    localizedOptionWarningText: String
+    localizedText: String
+    optionWarning: JSONString
+    optionWarningText: String
+    order: Int!
+    question: QuestionNode!
+    subQuestions: [QuestionNode]
+    submissionanswerSet(after: String, before: String, first: Int, last: Int, offset: Int): SubmissionAnswerNodeConnection!
+    "Option text must be at least 1 character long"
+    text: String!
+    "Optional value/code associated with this option (e.g., score or key)"
+    value: String
+    warningTranslations: [OptionWarningTranslationNode]
+}
+
+type QuestionOptionNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [QuestionOptionNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `QuestionOptionNode` and its cursor."
+type QuestionOptionNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: QuestionOptionNode
+}
+
+type Refresh {
+    payload: GenericScalar!
+    refreshExpiresIn: Int!
+    refreshToken: String!
+    token: String!
+}
+
+type ResetPassword {
+    message: String
+    success: Boolean
+}
+
+type SaveAnswerMutation {
+    answer: SubmissionAnswerNode
+    errors: [String]
+    success: Boolean
+}
+
+type SubmissionAnswerNode implements Node {
+    "The ID of the object"
+    id: ID!
+    "Text entered when user selects 'Other' option"
+    otherText: String
+    question: QuestionNode!
+    selectedOptions(after: String, before: String, first: Int, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, text: String, text_Icontains: String): QuestionOptionNodeConnection!
+    submission: SubmissionNode!
+    textAnswer: String
+}
+
+type SubmissionAnswerNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [SubmissionAnswerNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `SubmissionAnswerNode` and its cursor."
+type SubmissionAnswerNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: SubmissionAnswerNode
+}
+
+type SubmissionNode implements Node {
+    answers(after: String, before: String, first: Int, last: Int, offset: Int): SubmissionAnswerNodeConnection!
+    "The ID of the object"
+    id: ID!
+    ipAddress: String
+    latitude: Float
+    "Client-generated UUID for offline sync"
+    localId: String
+    longitude: Float
+    "Upload photo image (if required)"
+    photoImage: String
+    photoImageUrl: String
+    sessionKey: String
+    "Upload signature image (if required)"
+    signatureImage: String
+    signatureImageUrl: String
+    status: SurveySubmissionStatusChoices!
+    submittedAt: DateTime!
+    survey: SurveyNode!
+    title: String
+    user: UserNode
+    userAgent: String
+}
+
+type SubmissionNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [SubmissionNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `SubmissionNode` and its cursor."
+type SubmissionNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: SubmissionNode
+}
+
+type SubmissionStatsType {
+    completedCount: Int
+    draftCount: Int
+    pendingCount: Int
+    totalCount: Int
+}
+
+type SubmitSurveyMutation {
+    errors: [String]
+    submission: SubmissionNode
+    success: Boolean
+}
+
+type SurveyConsentTranslationNode implements Node {
+    "Consent text translation (max 5000 characters)"
+    consentText: String!
+    createdAt: DateTime!
+    "The ID of the object"
+    id: ID!
+    language: SurveySurveyConsentTranslationLanguageChoices!
+    survey: SurveyNode!
+    updatedAt: DateTime!
+}
+
+type SurveyNode implements Node {
+    allowMultipleSubmissions: Boolean!
+    availableLanguages: [String]
+    "Consent text displayed to respondents before they start the survey (max 5000 characters)"
+    consentText: String
+    consentTranslations: [SurveyConsentTranslationNode]
+    createdAt: DateTime!
+    createdBy: UserNode
+    defaultLanguage: SurveySurveyDefaultLanguageChoices!
+    "Description cannot exceed 2000 characters"
+    description: String
+    displayMode: SurveySurveyDisplayModeChoices!
+    "Optional end date for the survey"
+    endDate: Date
+    hasSubmitted: Boolean
+    "The ID of the object"
+    id: ID!
+    isActive: Boolean!
+    localizedConsentText: String
+    pages(after: String, before: String, first: Int, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, title: String, title_Icontains: String): SurveyPageNodeConnection!
+    questions(after: String, before: String, filterOptionsQuestion: ID, filterOptionsQuestion_Isnull: Boolean, first: Int, isRequired: Boolean, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, questionType: SurveyQuestionQuestionTypeChoices, text_Icontains: String): QuestionNodeConnection!
+    renderField: QuestionNode
+    renderInResponse: Boolean
+    submissionCount: Int
+    submissions(after: String, before: String, first: Int, last: Int, offset: Int, status: SurveySubmissionStatusChoices, submittedAt: DateTime, submittedAt_Date: DateTime, submittedAt_Gt: DateTime, submittedAt_Lt: DateTime): SubmissionNodeConnection!
+    "Survey title must be at least 3 characters long"
+    title: String!
+    updatedAt: DateTime!
+    visibility: SurveySurveyVisibilityChoices!
+}
+
+type SurveyNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [SurveyNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `SurveyNode` and its cursor."
+type SurveyNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: SurveyNode
+}
+
+type SurveyPageNode implements Node {
+    "Description cannot exceed 1000 characters"
+    description: String
+    "The ID of the object"
+    id: ID!
+    localizedTitle: String
+    order: Int!
+    questions(after: String, before: String, filterOptionsQuestion: ID, filterOptionsQuestion_Isnull: Boolean, first: Int, isRequired: Boolean, last: Int, offset: Int, order: Int, order_Gt: Int, order_Lt: Int, questionType: SurveyQuestionQuestionTypeChoices, text_Icontains: String): QuestionNodeConnection!
+    survey: SurveyNode!
+    "Page title must be at least 2 characters if provided"
+    title: String
+}
+
+type SurveyPageNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [SurveyPageNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `SurveyPageNode` and its cursor."
+type SurveyPageNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: SurveyPageNode
+}
+
+type SustainableActivitiesSubmissionNode implements Node {
+    climateResilientSeedsToFarmers: Boolean!
+    compostingUnitsAtFpoLevel: Boolean!
+    createdAt: DateTime!
+    dripSprinklerIrrigationToFarmers: Boolean!
+    establishmentOfRainwaterHarvestingAtFpoLevel: Boolean!
+    "The ID of the object"
+    id: ID!
+    organicBioManureFertilizersToFarmers: Boolean!
+    pestDiseaseAlertsToFarmers: Boolean!
+    solarPanelsAtFpoLevel: Boolean!
+    supplyingAgriculturalResidueToBioCngGasPlants: Boolean!
+    trainingOnOrganicFarmingToFarmers: Boolean!
+    updatedAt: DateTime!
+    weatherAdvisoriesToFarmers: Boolean!
+    yearlySubmission: YearlySubmissionNode!
+}
+
+type UserNode implements Node {
+    dateJoined: DateTime!
+    email: String!
+    firstName: String!
+    fposCreated(after: String, before: String, district: String, district_Icontains: String, first: Int, isActive: Boolean, last: Int, name: String, name_Icontains: String, offset: Int, state: String, state_Icontains: String): FPONodeConnection!
+    "The ID of the object"
+    id: ID!
+    "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
+    isActive: Boolean!
+    "Designates whether the user can log into this admin site."
+    isStaff: Boolean!
+    "Designates that this user has all permissions without explicitly assigning them."
+    isSuperuser: Boolean!
+    lastLogin: DateTime
+    lastName: String!
+    submissionsMade(after: String, before: String, financialYear: String, first: Int, fpo_Name: String, fpo_Name_Icontains: String, last: Int, offset: Int, status: FpoYearlySubmissionStatusChoices): YearlySubmissionNodeConnection!
+    submissionsReviewed(after: String, before: String, financialYear: String, first: Int, fpo_Name: String, fpo_Name_Icontains: String, last: Int, offset: Int, status: FpoYearlySubmissionStatusChoices): YearlySubmissionNodeConnection!
+    surveySubmissions(after: String, before: String, first: Int, last: Int, offset: Int, status: SurveySubmissionStatusChoices, submittedAt: DateTime, submittedAt_Date: DateTime, submittedAt_Gt: DateTime, submittedAt_Lt: DateTime): SubmissionNodeConnection!
+    surveys(after: String, before: String, createdBy_Username: String, createdBy_Username_Icontains: String, endDate: Date, endDate_Gt: Date, endDate_Gte: Date, endDate_Isnull: Boolean, endDate_Lt: Date, endDate_Lte: Date, first: Int, isActive: Boolean, last: Int, offset: Int, title: String, title_Icontains: String, title_Istartswith: String, visibility: SurveySurveyVisibilityChoices): SurveyNodeConnection!
+    "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+    username: String!
+}
+
+type UserNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [UserNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `UserNode` and its cursor."
+type UserNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: UserNode
+}
+
+type UserType {
+    email: String
+    firstName: String
+    id: ID
+    isActive: Boolean
+    isStaff: Boolean
+    lastName: String
+    username: String
+}
+
+type Verify {
+    payload: GenericScalar!
+}
+
+type YearlySubmissionNode implements Node {
+    "Comments from reviewer"
+    approvalComments: String!
+    boardDirectors(after: String, before: String, first: Int, last: Int, offset: Int): BoardDirectorProfileNodeConnection!
+    businessOperations: BusinessOperationsSubmissionNode
+    "Raw business operations score"
+    businessRawScore: Decimal
+    "Business & Operations section percentage score"
+    businessScore: Decimal
+    "Automatically calculated FPO score"
+    calculatedScore: Float
+    ceoProfile: CEOProfileSubmissionNode
+    complianceDetails: ComplianceDetailsSubmissionNode
+    createdAt: DateTime!
+    financialDetailsV2: FinancialDetailsSubmissionV2Node
+    "Raw financial performance score"
+    financialRawScore: Decimal
+    "Financial Performance section percentage score"
+    financialScore: Decimal
+    "Format: 2023-2024"
+    financialYear: String!
+    fpo: FPONode!
+    fpoDetails: FPODetailsSubmissionNode
+    governance: GovernanceSubmissionNode
+    "Raw governance score"
+    governanceRawScore: Decimal
+    "Governance section percentage score"
+    governanceScore: Decimal
+    "The ID of the object"
+    id: ID!
+    "Raw process & systems score"
+    processRawScore: Decimal
+    "Process & Systems section percentage score"
+    processScore: Decimal
+    processesSystems: ProcessesSystemsSubmissionNode
+    reviewedAt: DateTime
+    reviewedBy: UserNode
+    status: FpoYearlySubmissionStatusChoices!
+    submittedAt: DateTime
+    submittedBy: UserNode
+    sustainableActivities: SustainableActivitiesSubmissionNode
+    updatedAt: DateTime!
+}
+
+type YearlySubmissionNodeConnection {
+    "Contains the nodes in this connection."
+    edges: [YearlySubmissionNodeEdge]!
+    "Pagination data for this connection."
+    pageInfo: PageInfo!
+}
+
+"A Relay edge containing a `YearlySubmissionNode` and its cursor."
+type YearlySubmissionNodeEdge {
+    "A cursor for use in pagination"
+    cursor: String!
+    "The item at the end of the edge"
+    node: YearlySubmissionNode
+}
+
+enum AccountsMISTypeEnum {
+    MS_OFFICE_TOOLS
+    NO_MIS
+    SOFTWARE_DIGITAL
+    TALLY_NO_DIGITAL
+}
+
+enum ActRegisteredTypeEnum {
+    COMPANY_ACT
+    COOPERATIVE_SOCIETIES_ACT
+    OTHER
+}
+
+enum BoardExperienceTypeEnum {
+    AGRICULTURAL_COOPERATIVES
+    ANY_OTHER
+    FARMER_OWNED_ENTERPRISES
+    FARM_MANAGEMENT
+    GOVERNMENT_AGRICULTURE
+    NGO_AGRICULTURE
+    SELF_HELP_GROUPS
+    VILLAGE_COUNCILS
+}
+
+enum BooksRecordsTypeEnum {
+    CURRENT
+    LAG_2_3_DAYS
+    PROCESSES_SYSTEMS
+    WEEKLY_UPDATED
+}
+
+enum CreditRecordTypeEnum {
+    MULTIPLE_DELAYS
+    NO_CREDIT_HISTORY
+    NO_DELAYS
+    ONE_DELAY
+}
+
+enum DistanceAvailabilityTypeEnum {
+    NOT_APPLICABLE
+    NOT_WITHIN_TEN_KM
+    SIX_KM
+    TEN_KM
+    THREE_KM
+}
+
+enum ExperienceTypeEnum {
+    AGRICULTURAL_COOPERATIVES
+    ANY_OTHER
+    BUSINESS_FUNCTIONS
+    FARMER_OWNED_ENTERPRISES
+    FARM_MANAGEMENT
+    GOVERNMENT_AGRICULTURE
+    NGO_AGRICULTURE
+    SELF_HELP_GROUPS
+    VILLAGE_COUNCILS
+}
+
+enum FPOTypeEnum {
+    HIGH_CAPACITY
+    INPUTS_AND_OUTPUT
+    INPUTS_OR_OUTPUT
+    LOW_CAPACITY
+}
+
+"An enumeration."
+enum FpoBoardDirectorProfileTypeOfExperienceChoices {
+    "Agricultural Cooperatives/Farmer producer organizations"
+    AGRICULTURAL_COOPERATIVES
+    "Any other"
+    ANY_OTHER
+    "Farmer-owned enterprises"
+    FARMER_OWNED_ENTERPRISES
+    "Farm Management"
+    FARM_MANAGEMENT
+    "Governmental departments of agricultural sector / fisheries / animal husbandry"
+    GOVERNMENT_AGRICULTURE
+    "Non-governmental organization / Non-profit organization focused on agricultural sector / fisheries / animal husbandry"
+    NGO_AGRICULTURE
+    "Self-help groups"
+    SELF_HELP_GROUPS
+    "Village councils"
+    VILLAGE_COUNCILS
+}
+
+"An enumeration."
+enum FpoBusinessOperationsSubmissionAvailabilityOfInputsPlaceChoices {
+    "Available within 10 KM of distance for majority of farmers"
+    A_10_KM_AVAILABLE
+    "Available within 3 KM of distance for majority of farmers"
+    A_3_KM_AVAILABLE
+    "Available within 6 KM of distance for the majority of farmers"
+    A_6_KM_AVAILABLE
+    "Not Applicable"
+    NOT_APPLICABLE
+    "Not available within 10 KM of distance for majority of farmers"
+    NOT_WITHIN_10_KM
+}
+
+"An enumeration."
+enum FpoBusinessOperationsSubmissionAvailabilityOfInputsPriceAffordabilityChoices {
+    "Available to member farmers at 10% - 15% less than market price"
+    A_10_15_PERCENT_LESS
+    "Available to member farmers at 1% - 3% less than market price"
+    A_1_3_PERCENT_LESS
+    "Available to member farmers at 3% - 5% less than market price"
+    A_3_5_PERCENT_LESS
+    "Available to member farmers at 5% - 10% less than market price"
+    A_5_10_PERCENT_LESS
+    "Not Applicable"
+    NOT_APPLICABLE
+}
+
+"An enumeration."
+enum FpoBusinessOperationsSubmissionAvailabilityOfInputsTimelinessChoices {
+    "15 days prior to the sowing season"
+    A_15_DAYS_PRIOR
+    "20 days prior to the sowing season"
+    A_20_DAYS_PRIOR
+    "30 days prior to the sowing season"
+    A_30_DAYS_PRIOR
+    "7 days prior to the sowing season"
+    A_7_DAYS_PRIOR
+    "Not Applicable"
+    NOT_APPLICABLE
+}
+
+"An enumeration."
+enum FpoBusinessOperationsSubmissionPriceVolatilityOfProductsChoices {
+    "FPO dealing in highly price sensitive/volatile commodities (oil seed, gram etc) and price risk borne by the FPO"
+    HIGHLY_VOLATILE_FPO_RISK
+    "Commodities with MSP, but price risk on FPO"
+    MSP_FPO_RISK
+    "Not applicable - FPO only in lending/supplying inputs"
+    NOT_APPLICABLE
+    "Part of the commodities hedged against price risk/or non volatile commodities"
+    PARTIAL_HEDGE
+    "Price risk covered through well defined hedging through NCDEX or other mediums"
+    WELL_HEDGED
+}
+
+"An enumeration."
+enum FpoCEOProfileSubmissionTypeOfExperienceChoices {
+    "Agricultural Cooperatives / Farmer Producer Organizations"
+    AGRICULTURAL_COOPERATIVES
+    "Any other"
+    ANY_OTHER
+    "Knowledge of key business functions (Marketing, Finance, Business Development, etc.)"
+    BUSINESS_FUNCTIONS
+    "Farmer-owned enterprises"
+    FARMER_OWNED_ENTERPRISES
+    "Farm management"
+    FARM_MANAGEMENT
+    "Government departments related to agriculture, fisheries, or animal husbandry"
+    GOVERNMENT_AGRICULTURE
+    "Non-governmental organization / Non-profit organization focused on agriculture, fisheries, or animal husbandry"
+    NGO_AGRICULTURE
+    "Self-help groups"
+    SELF_HELP_GROUPS
+    "Village councils"
+    VILLAGE_COUNCILS
+}
+
+"An enumeration."
+enum FpoComplianceDetailsSubmissionActUnderRegisteredChoices {
+    "Company Act"
+    COMPANY_ACT
+    "Co-operative Societies Act"
+    COOPERATIVE_SOCIETIES_ACT
+    "Other"
+    OTHER
+}
+
+"An enumeration."
+enum FpoFPODetailsSubmissionTypeOfFpoChoices {
+    "Dealing in inputs, output and processing with more than 50% capacity utilization"
+    HIGH_CAPACITY
+    "Dealing in inputs and output"
+    INPUTS_AND_OUTPUT
+    "Dealing in inputs or output"
+    INPUTS_OR_OUTPUT
+    "Dealing in inputs, output and processing with less than 50% capacity utilization"
+    LOW_CAPACITY
+}
+
+"An enumeration."
+enum FpoFPODetailsSubmissionTypeOfProducerOrganizationChoices {
+    "Co-operative Society"
+    CO_OPERATIVE_SOCIETY
+    "Non-Profit Society"
+    NON_PROFIT_SOCIETY
+    "Producer Company"
+    PRODUCER_COMPANY
+    "Section-8 Company"
+    SECTION_8_COMPANY
+    "Trust"
+    TRUST
+}
+
+"An enumeration."
+enum FpoFPODetailsSubmissionTypeOfPromotingAgencyChoices {
+    "Big Farmer Producer Companies"
+    BIG_FARMER_COMPANIES
+    "Commodity Boards"
+    COMMODITY_BOARDS
+    "Cooperatives"
+    COOPERATIVES
+    "Wings/Development Foundation of Corporates"
+    CORPORATE_WINGS
+    "Farmer Federations"
+    FARMER_FEDERATIONS
+    "KVKs"
+    KVKS
+    "NGO"
+    NGO
+    "Others"
+    OTHERS
+    "State Govt. Departments"
+    STATE_GOVT
+    "Trusts"
+    TRUSTS
+}
+
+"An enumeration."
+enum FpoGovernanceSubmissionMinutesMaintenanceChoices {
+    "Minutes are detailed with decisions recorded and proper compliance followed."
+    DETAILED_COMPLIANT
+    "Minutes are detailed with decisions recorded but not updated on MCA."
+    DETAILED_NOT_UPDATED
+    "Minutes are not maintained."
+    NOT_MAINTAINED
+    "Minutes are sketchy in quality."
+    SKETCHY_QUALITY
+}
+
+"An enumeration."
+enum FpoGovernanceSubmissionSecondLineManagementChoices {
+    "CEO accompanied by accounts team & one divisional manager (eg: marketing, sales, procurement)"
+    CEO_ACCOUNTS_ONE_MANAGER
+    "CEO accompanied by accounts team & atleast 2 divisional manager (eg: marketing, sales, procurement)"
+    CEO_ACCOUNTS_TWO_MANAGERS
+    "No second line, CEO accompanied by accounts team"
+    CEO_WITH_ACCOUNTS
+    "Currently no CEO"
+    NO_CEO
+    "No second line, only CEO"
+    ONLY_CEO
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionAccountsAndMisChoices {
+    "Accounting managed by using basic MS Office tools but not software packages"
+    MS_OFFICE_TOOLS
+    "No MIS is present"
+    NO_MIS
+    "Software for managing accounts & digitalization of MIS"
+    SOFTWARE_DIGITAL
+    "Accounting managed by tally, but no digitalization of the other operational records"
+    TALLY_NO_DIGITAL
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionBooksAndRecordsUpToDateChoices {
+    "Current"
+    CURRENT
+    "Updated with a lag of 2-3 days"
+    LAG_2_3_DAYS
+    "Updated on monthly or more basis"
+    MONTHLY_OR_MORE
+    "Processes and Systems (E)"
+    PROCESSES_SYSTEMS
+    "Updated on weekly basis"
+    WEEKLY_UPDATED
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionCreditRecordOfFpoChoices {
+    "More than one record of delays/defaults in the last 3 financial years"
+    MULTIPLE_DELAYS
+    "No Credit History"
+    NO_CREDIT_HISTORY
+    "No records of delays or default"
+    NO_DELAYS
+    "One record of delays/defaults in last 3 financial years"
+    ONE_DELAY
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionInsuranceOfStockChoices {
+    "100% stock is insured against fire & theft"
+    A_100_FIRE_THEFT
+    "50% of the stock is insured against fire & theft"
+    A_50_FIRE_THEFT
+    "Less than 50% of the stock is insured against fire"
+    LESS_THAN_50_FIRE
+    "No insurance cover"
+    NO_INSURANCE
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionReconciliationOfStocksChoices {
+    "Absent or Annual"
+    ABSENT_ANNUAL
+    "2-4 times in a year"
+    A_2_4_TIMES_YEAR
+    "At least every 15 days"
+    EVERY_15_DAYS
+    "Monthly"
+    MONTHLY
+}
+
+"An enumeration."
+enum FpoProcessesSystemsSubmissionStatutoryFillingsChoices {
+    "Any delays in the past 12 months that are not yet filled"
+    DELAYS_NOT_FILLED
+    "Few delays (<3) over the past 12 months but filled as on date"
+    FEW_DELAYS_FILLED
+    "Multiple delays (>5) over the past 12 months but filled as on date"
+    MULTIPLE_DELAYS_FILLED
+    "No delays"
+    NO_DELAYS
+}
+
+"An enumeration."
+enum FpoYearlySubmissionStatusChoices {
+    "Approved"
+    APPROVED
+    "Draft"
+    DRAFT
+    "Rejected"
+    REJECTED
+    "Revision Required"
+    REVISION_REQUIRED
+    "Submitted"
+    SUBMITTED
+    "Under Review"
+    UNDER_REVIEW
+}
+
+enum InputTimelinessTypeEnum {
+    FIFTEEN_DAYS
+    NOT_APPLICABLE
+    SEVEN_DAYS
+    THIRTY_DAYS
+    TWENTY_DAYS
+}
+
+enum InsuranceStockTypeEnum {
+    FIFTY_PERCENT_FIRE_THEFT
+    HUNDRED_PERCENT_FIRE_THEFT
+    LESS_THAN_50_FIRE
+    NO_INSURANCE
+}
+
+enum MinutesMaintenanceTypeEnum {
+    DETAILED_COMPLIANT
+    DETAILED_NOT_UPDATED
+    NOT_MAINTAINED
+    SKETCHY_QUALITY
+}
+
+enum PriceAffordabilityTypeEnum {
+    FIVE_TO_TEN_PERCENT
+    NOT_APPLICABLE
+    ONE_TO_THREE_PERCENT
+    TEN_TO_FIFTEEN_PERCENT
+    THREE_TO_FIVE_PERCENT
+}
+
+enum PriceVolatilityTypeEnum {
+    HIGHLY_VOLATILE_FPO_RISK
+    MSP_FPO_RISK
+    NOT_APPLICABLE
+    PARTIAL_HEDGE
+    WELL_HEDGED
+}
+
+enum ProducerOrgTypeEnum {
+    CO_OPERATIVE_SOCIETY
+    NON_PROFIT_SOCIETY
+    PRODUCER_COMPANY
+    SECTION_8_COMPANY
+    TRUST
+}
+
+enum PromotingAgencyTypeEnum {
+    BIG_FARMER_COMPANIES
+    COMMODITY_BOARDS
+    COOPERATIVES
+    CORPORATE_WINGS
+    FARMER_FEDERATIONS
+    KVKS
+    NGO
+    OTHERS
+    STATE_GOVT
+    TRUSTS
+}
+
+enum ReconciliationStocksTypeEnum {
+    ABSENT_ANNUAL
+    EVERY_15_DAYS
+    MONTHLY
+    TWO_TO_FOUR_TIMES
+}
+
+enum SecondLineManagementTypeEnum {
+    CEO_WITH_ACCOUNTS
+    CEO_WITH_ACCOUNTS_ONE_MANAGER
+    CEO_WITH_ACCOUNTS_TWO_MANAGERS
+    NO_CEO
+    ONLY_CEO
+}
+
+enum StatutoryFillingsTypeEnum {
+    DELAYS_NOT_FILLED
+    FEW_DELAYS_FILLED
+    MULTIPLE_DELAYS_FILLED
+    NO_DELAYS
+}
+
+"An enumeration."
+enum SurveyOptionConditionConditionTypeChoices {
+    "Contains"
+    CONTAINS
+    "Equals"
+    EQUALS
+    "Greater Than"
+    GREATER_THAN
+    "In (any of)"
+    IN
+    "Is Empty"
+    IS_EMPTY
+    "Is Not Empty"
+    IS_NOT_EMPTY
+    "Less Than"
+    LESS_THAN
+    "Not Contains"
+    NOT_CONTAINS
+    "Not Equals"
+    NOT_EQUALS
+    "Not In (none of)"
+    NOT_IN
+}
+
+"An enumeration."
+enum SurveyOptionConditionLogicOperatorChoices {
+    "AND"
+    AND
+    "OR"
+    OR
+}
+
+"An enumeration."
+enum SurveyOptionWarningTranslationLanguageChoices {
+    "Assamese"
+    AS
+    "Bengali"
+    BN
+    "Bodo"
+    BRX
+    "Dogri"
+    DOI
+    "English"
+    EN
+    "Gujarati"
+    GU
+    "Hindi"
+    HI
+    "Kannada"
+    KN
+    "Konkani"
+    KOK
+    "Kashmiri"
+    KS
+    "Maithili"
+    MAI
+    "Malayalam"
+    ML
+    "Manipuri"
+    MNI
+    "Marathi"
+    MR
+    "Nepali"
+    NE
+    "Odia"
+    OR
+    "Punjabi"
+    PA
+    "Sanskrit"
+    SA
+    "Santali"
+    SAT
+    "Sindhi"
+    SD
+    "Tamil"
+    TA
+    "Telugu"
+    TE
+    "Urdu"
+    UR
+}
+
+"An enumeration."
+enum SurveyOptionWarningTranslationWarningTypeChoices {
+    "When Not Selected"
+    NOT_SELECTED
+    "When Selected"
+    SELECTED
+}
+
+"An enumeration."
+enum SurveyQuestionConditionConditionTypeChoices {
+    "Contains"
+    CONTAINS
+    "Equals"
+    EQUALS
+    "Greater Than"
+    GREATER_THAN
+    "In (any of)"
+    IN
+    "Is Empty"
+    IS_EMPTY
+    "Is Not Empty"
+    IS_NOT_EMPTY
+    "Less Than"
+    LESS_THAN
+    "Not Contains"
+    NOT_CONTAINS
+    "Not Equals"
+    NOT_EQUALS
+    "Not In (none of)"
+    NOT_IN
+}
+
+"An enumeration."
+enum SurveyQuestionConditionLogicOperatorChoices {
+    "AND"
+    AND
+    "OR"
+    OR
+}
+
+"An enumeration."
+enum SurveyQuestionQuestionTypeChoices {
+    "Checkbox"
+    CHECKBOX
+    "Consent Page"
+    CONSENT
+    "Date"
+    DATE
+    "Date & Time"
+    DATETIME
+    "Dropdown"
+    DROPDOWN
+    "Email"
+    EMAIL
+    "Note/Information"
+    NOTE
+    "Number"
+    NUMBER
+    "Radio Button"
+    RADIO
+    "Text"
+    TEXT
+    "Textarea"
+    TEXTAREA
+    "Time"
+    TIME
+}
+
+"An enumeration."
+enum SurveySubmissionStatusChoices {
+    "Completed"
+    COMPLETED
+    "Draft"
+    DRAFT
+    "Pending"
+    PENDING
+}
+
+"An enumeration."
+enum SurveySurveyConsentTranslationLanguageChoices {
+    "Assamese"
+    AS
+    "Bengali"
+    BN
+    "Bodo"
+    BRX
+    "Dogri"
+    DOI
+    "English"
+    EN
+    "Gujarati"
+    GU
+    "Hindi"
+    HI
+    "Kannada"
+    KN
+    "Konkani"
+    KOK
+    "Kashmiri"
+    KS
+    "Maithili"
+    MAI
+    "Malayalam"
+    ML
+    "Manipuri"
+    MNI
+    "Marathi"
+    MR
+    "Nepali"
+    NE
+    "Odia"
+    OR
+    "Punjabi"
+    PA
+    "Sanskrit"
+    SA
+    "Santali"
+    SAT
+    "Sindhi"
+    SD
+    "Tamil"
+    TA
+    "Telugu"
+    TE
+    "Urdu"
+    UR
+}
+
+"An enumeration."
+enum SurveySurveyDefaultLanguageChoices {
+    "Assamese"
+    AS
+    "Bengali"
+    BN
+    "Bodo"
+    BRX
+    "Dogri"
+    DOI
+    "English"
+    EN
+    "Gujarati"
+    GU
+    "Hindi"
+    HI
+    "Kannada"
+    KN
+    "Konkani"
+    KOK
+    "Kashmiri"
+    KS
+    "Maithili"
+    MAI
+    "Malayalam"
+    ML
+    "Manipuri"
+    MNI
+    "Marathi"
+    MR
+    "Nepali"
+    NE
+    "Odia"
+    OR
+    "Punjabi"
+    PA
+    "Sanskrit"
+    SA
+    "Santali"
+    SAT
+    "Sindhi"
+    SD
+    "Tamil"
+    TA
+    "Telugu"
+    TE
+    "Urdu"
+    UR
+}
+
+"An enumeration."
+enum SurveySurveyDisplayModeChoices {
+    "Page-wise (Show all questions in a page at once)"
+    PAGE_WISE
+    "Question per page (One question at a time)"
+    QUESTION_PER_PAGE
+}
+
+"An enumeration."
+enum SurveySurveyVisibilityChoices {
+    "Private (Only invited users can access)"
+    PRIVATE
+    "Public (Anyone with the link can access)"
+    PUBLIC
+}
+
+"""
+
+The `Date` scalar type represents a Date
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Date
+
+"""
+
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+"The `Decimal` scalar type represents a python Decimal."
+scalar Decimal
+
+"""
+
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar
+
+"""
+
+Allows use of a JSON String for input / output from the GraphQL schema.
+
+Use of this type is *not recommended* as you lose the benefits of having a defined, static
+schema (one of the key benefits of GraphQL).
+"""
+scalar JSONString
+
+input AnswerInput {
+    "Text entered when user selects 'Other' option"
+    otherText: String
+    "Base64 encoded photo image"
+    photoImage: String
+    questionId: ID!
+    selectedOptionIds: [ID]
+    "Base64 encoded signature image"
+    signatureImage: String
+    textAnswer: String
+}
+
+input BoardDirectorProfileInput {
+    educationalQualification: String
+    name: String
+    otherExperience: String
+    totalYearsOfExperience: Int
+    typeOfExperience: BoardExperienceTypeEnum
+}
+
+input BusinessOperationsSubmissionInput {
+    accessibilityPercentage: Decimal
+    advisoryServices: Boolean
+    availabilityOfInputsPlace: DistanceAvailabilityTypeEnum
+    availabilityOfInputsPriceAffordability: PriceAffordabilityTypeEnum
+    availabilityOfInputsTimeliness: InputTimelinessTypeEnum
+    chilling: Boolean
+    cleaning: Boolean
+    contractFarming: Boolean
+    creditFacilities: Boolean
+    customHiringCenters: Boolean
+    distanceOfOutputCollectionCentres: String
+    electronicWeighingMachines: Boolean
+    gradingAndSorting: Boolean
+    labelling: Boolean
+    packaging: Boolean
+    priceVolatilityOfProducts: PriceVolatilityTypeEnum
+    processing: Boolean
+    qualityCheck: Boolean
+    soilTestingFacility: Boolean
+    storage: Boolean
+    transportationFacility: Boolean
+}
+
+input CEOProfileSubmissionInput {
+    name: String
+    numberOfYearsAssociated: Int
+    otherExperienceType: String
+    qualification: String
+    totalYearsOfExperience: Int
+    typeOfExperience: ExperienceTypeEnum
+}
+
+input ComplianceDetailsSubmissionInput {
+    actUnderRegistered: ActRegisteredTypeEnum
+    commencementDate: Date
+    commencementPlace: String
+    commencementRegNo: String
+    dateOfRegistration: Date
+    gstDate: Date
+    gstPlace: String
+    gstRegNo: String
+    incorporationDate: Date
+    incorporationPlace: String
+    incorporationRegNo: String
+    permanentAccountNumber: String
+    placeOfRegistration: String
+    registrationNo: String
+    taxAccountNumber: String
+}
+
+input FPODetailsSubmissionInput {
+    ageOfFpoYears: Float
+    dateOfCommencement: Date
+    dateOfIncorporation: Date
+    dealsThroughPgsFigs: Boolean
+    district: String
+    farmersTransacted: Int
+    grantMakingOrganization: String
+    nameOfProducerOrganization: String
+    numPgsFigs: Int
+    otherPromotingAgencyType: String
+    promotingAgencyName: String
+    receivedGrants: Boolean
+    registeredAddress: String
+    sizeOfFpoFy2122: Int
+    sizeOfFpoFy2223: Int
+    sizeOfFpoFy2324: Int
+    state: String
+    supportedByPromotingAgency: Boolean
+    targetSizeOfFpo: Int
+    typeOfFpo: FPOTypeEnum
+    typeOfProducerOrganization: ProducerOrgTypeEnum
+    typeOfPromotingAgency: PromotingAgencyTypeEnum
+    womenMembers: Int
+}
+
+input FinancialDetailsSubmissionV2Input {
+    cashChequePercentage: Decimal
+    creditDefaultAmount: Decimal
+    creditDefaultLender: String
+    creditDefaultYear: String
+    currentYearAccountsPayable: Decimal
+    currentYearAccountsReceivable: Decimal
+    currentYearAssets: Decimal
+    currentYearClosingInventory: Decimal
+    currentYearCogs: Decimal
+    currentYearCurrentAssets: Decimal
+    currentYearCurrentLiabilities: Decimal
+    currentYearGrossProfit: Decimal
+    currentYearInstitutionalProducts: String
+    currentYearInstitutionalRevenue: Decimal
+    currentYearLenderName: String
+    currentYearLiabilities: Decimal
+    currentYearLoanAmount: Decimal
+    currentYearMatchingGrant: Decimal
+    currentYearNetProfit: Decimal
+    currentYearOpeningInventory: Decimal
+    currentYearProducts: String
+    currentYearProjectGrant: Decimal
+    currentYearQuantityProcured: Decimal
+    currentYearQuantityProducts: String
+    currentYearRetailProducts: String
+    currentYearRetailRevenue: Decimal
+    currentYearRevenue: Decimal
+    currentYearShareCapital: Decimal
+    currentYearShareholders: Int
+    currentYearWholesaleProducts: String
+    currentYearWholesaleRevenue: Decimal
+    daysPayableReceivableDifference: Int
+    grossNetProfitMarginDifference: Decimal
+    institutionalLendingHistory: String
+    loanDetails: JSONString
+    operatingMarginCurrentYear: Decimal
+    previousYearAccountsPayable: Decimal
+    previousYearAccountsReceivable: Decimal
+    previousYearAssets: Decimal
+    previousYearClosingInventory: Decimal
+    previousYearCogs: Decimal
+    previousYearCurrentAssets: Decimal
+    previousYearCurrentLiabilities: Decimal
+    previousYearGrossProfit: Decimal
+    previousYearInstitutionalProducts: String
+    previousYearInstitutionalRevenue: Decimal
+    previousYearLenderName: String
+    previousYearLiabilities: Decimal
+    previousYearLoanAmount: Decimal
+    previousYearMatchingGrant: Decimal
+    previousYearNetProfit: Decimal
+    previousYearOpeningInventory: Decimal
+    previousYearProducts: String
+    previousYearProjectGrant: Decimal
+    previousYearQuantityProcured: Decimal
+    previousYearQuantityProducts: String
+    previousYearRetailProducts: String
+    previousYearRetailRevenue: Decimal
+    previousYearRevenue: Decimal
+    previousYearShareCapital: Decimal
+    previousYearShareholders: Int
+    previousYearWholesaleProducts: String
+    previousYearWholesaleRevenue: Decimal
+    targetRevenue: Decimal
+    totalDebtToday: Decimal
+    twoYearsBackAccountsPayable: Decimal
+    twoYearsBackAccountsReceivable: Decimal
+    twoYearsBackAssets: Decimal
+    twoYearsBackClosingInventory: Decimal
+    twoYearsBackCogs: Decimal
+    twoYearsBackCurrentAssets: Decimal
+    twoYearsBackCurrentLiabilities: Decimal
+    twoYearsBackGrossProfit: Decimal
+    twoYearsBackInstitutionalProducts: String
+    twoYearsBackInstitutionalRevenue: Decimal
+    twoYearsBackLenderName: String
+    twoYearsBackLiabilities: Decimal
+    twoYearsBackLoanAmount: Decimal
+    twoYearsBackMatchingGrant: Decimal
+    twoYearsBackNetProfit: Decimal
+    twoYearsBackOpeningInventory: Decimal
+    twoYearsBackProducts: String
+    twoYearsBackProjectGrant: Decimal
+    twoYearsBackQuantityProcured: Decimal
+    twoYearsBackQuantityProducts: String
+    twoYearsBackRetailProducts: String
+    twoYearsBackRetailRevenue: Decimal
+    twoYearsBackRevenue: Decimal
+    twoYearsBackShareCapital: Decimal
+    twoYearsBackShareholders: Int
+    twoYearsBackWholesaleProducts: String
+    twoYearsBackWholesaleRevenue: Decimal
+}
+
+input GovernanceSubmissionInput {
+    annualGeneralBodyMeetings: Int
+    bodMeetingsLastFinancialYear: Int
+    minutesMaintenance: MinutesMaintenanceTypeEnum
+    numBods: Int
+    numWomenBods: Int
+    secondLineManagement: SecondLineManagementTypeEnum
+}
+
+input ProcessesSystemsSubmissionInput {
+    accountsAndMis: AccountsMISTypeEnum
+    booksAndRecordsUpToDate: BooksRecordsTypeEnum
+    creditRecordOfFpo: CreditRecordTypeEnum
+    insuranceOfStock: InsuranceStockTypeEnum
+    penaltiesLeviedBoardMeeting: Boolean
+    reconciliationOfStocks: ReconciliationStocksTypeEnum
+    statutoryFillings: StatutoryFillingsTypeEnum
+}
+
+input SustainableActivitiesSubmissionInput {
+    climateResilientSeedsToFarmers: Boolean
+    compostingUnitsAtFpoLevel: Boolean
+    dripSprinklerIrrigationToFarmers: Boolean
+    establishmentOfRainwaterHarvestingAtFpoLevel: Boolean
+    organicBioManureFertilizersToFarmers: Boolean
+    pestDiseaseAlertsToFarmers: Boolean
+    solarPanelsAtFpoLevel: Boolean
+    supplyingAgriculturalResidueToBioCngGasPlants: Boolean
+    trainingOnOrganicFarmingToFarmers: Boolean
+    weatherAdvisoriesToFarmers: Boolean
+}

@@ -1,0 +1,39 @@
+{
+  "title": "NAARI Survey Privacy Policy",
+  "updated": "28 October 2026",
+  "contact": "dpg@invarya.com",
+  "sections": [
+    {
+      "title": "About this policy",
+      "body": "NAARI Survey helps people and field teams complete surveys, including in areas with limited internet access. This policy covers the mobile app and its workspaces. Your selected workspace and the organisation conducting a survey determine who can access the responses. For privacy questions, contact dpg@invarya.com."
+    },
+    {
+      "title": "Information we collect",
+      "body": "Account information includes your username, email address, optional first and last names, and profile information you provide. Passwords are stored as hashes on the server. We process survey answers and, when you supply them, photos, signatures and the location attached to a submission. Survey questions may request personal or sensitive information; review each survey and its consent notice before participating. Server records can include your IP address, session information, device or browser information, app version, submission timestamps and diagnostic errors."
+    },
+    {
+      "title": "How information is used and shared",
+      "body": "We use information to authenticate you, provide assigned surveys, save and synchronise responses, generate reports, provide translations, and diagnose errors. Responses are available to authorised users of the organisation administering the survey, according to workspace permissions. Responses are not posted to a public social feed. We do not use app data for advertising or cross-app tracking. We may disclose information where required by law."
+    },
+    {
+      "title": "Services that process data",
+      "body": "The app connects to the NAARI survey server you configure for authentication, survey storage and synchronisation. Text-to-speech uses operating-system services. Optional administrator tools use OpenRouter and the selected AI model providers to translate survey content and generate survey insights. Server errors are monitored using Sentry; diagnostics may include account and request information. The app may request fonts from Google Fonts, which receives network information such as your IP address. Email delivery services process your address for account verification and password recovery. Only use optional photo and location features when you wish to provide that information."
+    },
+    {
+      "title": "Permissions and your choices",
+      "body": "Camera and photo access allow you to attach images. Location permission allows the app to geotag a submission while you use the app; background location is not required. You can revoke these permissions in device Settings. Manual text entry is available for survey answers. A survey may require particular evidence or consent before it can be submitted."
+    },
+    {
+      "title": "Offline storage and security",
+      "body": "The app stores login tokens, cached profile information, downloaded surveys, local drafts, queued answers and attachments on your device so you can work offline. When you reconnect, pending submissions are sent to your selected workspace. Network connections to the production survey servers use HTTPS. Protect your device with a passcode and limit access to authorised users. Signing out clears the app's offline survey storage and session. Unsynced work may be lost."
+    },
+    {
+      "title": "Retention and deleting your account",
+      "body": "Account and survey data remain available until deleted through the app or by the organisation administering the workspace. To permanently delete your account, open Settings > Delete Account, enter your current password and confirm. An internet connection is required. This deletes the account, profile, responses submitted by that account, related uploaded photos and signatures, account export files, and local offline data on that device. Shared survey definitions and other people's responses remain, with the deleted account removed as creator. Deletion applies only to the selected workspace; other workspace accounts must be deleted separately. There is no recovery period. Previously downloaded reports, independent organisational records, diagnostics and server backups may remain under their respective retention obligations and backup cycles. Contact dpg@invarya.com to ask about access, correction, deletion of other personal data or retention details."
+    },
+    {
+      "title": "Regions and policy changes",
+      "body": "The account deletion and privacy features are available in all supported regions. Available surveys, workspace access, translations and speech recognition depend on your organisation, language and device. Service providers may process data outside your region. We may update this policy when the service changes; the date above identifies this version."
+    }
+  ]
+}

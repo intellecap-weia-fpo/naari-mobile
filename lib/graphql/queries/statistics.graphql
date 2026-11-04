@@ -1,0 +1,8 @@
+query SubmissionStatistics {
+  submissionStatistics {
+    totalCount
+    completedCount
+    pendingCount
+    draftCount
+  }
+}

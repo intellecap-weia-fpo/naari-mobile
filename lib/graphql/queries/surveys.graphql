@@ -1,0 +1,272 @@
+fragment QuestionFetch on QuestionNode {
+  id
+  text
+  localizedText
+  hint
+  questionType
+  isRequired
+  order
+  evaluatorCondition
+  minLength
+  maxLength
+  minValue
+  maxValue
+  validationPattern
+  localizedHint
+  group
+  validationMessage
+  isConditional
+  key
+  filterOptionsQuestion { id }
+  page {
+    order
+    id
+  }
+  options(first: 50) {
+    edges {
+      node {
+        id
+        text
+        localizedText
+        optionWarning
+        optionWarningText
+        localizedOptionWarning
+        localizedOptionWarningText
+        order
+        conditions {
+          id
+          conditionType
+          logicOperator
+          order
+          targetQuestion { id key }
+          value
+        }
+        hasSubQuestion
+        subQuestions {
+          id
+          text
+          localizedText
+          hint
+          questionType
+          isRequired
+          order
+          minLength
+          maxLength
+          minValue
+          maxValue
+          validationPattern
+          validationMessage
+          filterOptionsQuestion { id }
+          options(first: 50) {
+            edges {
+              node {
+                id
+                text
+                localizedText
+                optionWarning
+                optionWarningText
+                localizedOptionWarning
+                localizedOptionWarningText
+                order
+                conditions {
+                  id
+                  conditionType
+                  logicOperator
+                  order
+                  targetQuestion { id key }
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    id
+    conditionType
+    logicOperator
+    order
+    targetQuestion {
+      id
+      key
+    }
+    value
+  }
+}
+
+
+query AccessibleSurveys($first: Int, $after: String) {
+  accessibleSurveys(first: $first, after: $after) {
+    edges {
+      node {
+        id
+        title
+        description
+        isActive
+        visibility
+        createdAt
+        updatedAt
+        endDate
+        createdBy {
+          username
+          firstName
+          lastName
+        }
+        submissionCount
+        hasSubmitted
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+
+# Lightweight query for survey detail page - excludes questions for faster load
+query SurveyBasic($id: ID!) {
+  survey(id: $id) {
+    id
+    submissionCount
+    title
+    description
+    isActive
+    visibility
+    consentText
+    endDate
+    allowMultipleSubmissions
+    defaultLanguage
+    availableLanguages
+    hasSubmitted
+    updatedAt
+    consentTranslations {
+      id
+      language
+      consentText
+    }
+  }
+}
+
+# Full query with all questions - use only when starting survey form
+query Survey($id: ID!, $language: String) {
+  survey(id: $id, language: $language) {
+    id
+    submissionCount
+    title
+    description
+    isActive
+    visibility
+    consentText
+    displayMode
+    endDate
+    allowMultipleSubmissions
+    defaultLanguage
+    availableLanguages
+    hasSubmitted
+    updatedAt
+    consentTranslations {
+      id
+      language
+      consentText
+    }
+    pages {
+      edges {
+        node {
+          id
+          title
+          localizedTitle
+          description
+          order
+          questions {
+            edges {
+              node {
+                ...QuestionFetch
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation CreateSubmission($surveyId: ID!, $status: String, $localId: String) {
+  createSubmission(surveyId: $surveyId, status: $status, localId: $localId) {
+    success
+    errors
+    submission {
+      id
+      localId
+      status
+      survey {
+        id
+        title
+      }
+    }
+  }
+}
+
+mutation SaveAnswer($submissionId: ID!, $questionId: ID!, $textAnswer: String, $selectedOptionIds: [ID], $otherText: String) {
+  saveAnswer(submissionId: $submissionId, questionId: $questionId, textAnswer: $textAnswer, selectedOptionIds: $selectedOptionIds, otherText: $otherText) {
+    success
+    errors
+    answer {
+      id
+      question {
+        id
+        text
+      }
+      textAnswer
+      otherText
+      selectedOptions {
+        edges {
+          node {
+            id
+            text
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation SubmitSurvey($surveyId: ID!, $answers: [AnswerInput!]!, $language: String, $submissionId: ID, $localId: String, $appVersion: String) {
+  submitSurvey(surveyId: $surveyId, answers: $answers, language: $language, submissionId: $submissionId, localId: $localId, appVersion: $appVersion) {
+    success
+    errors
+    submission {
+      id
+      localId
+      submittedAt
+      survey {
+        id
+        title
+      }
+      answers {
+        edges {
+          node {
+            id
+            question {
+              id
+              text
+            }
+            textAnswer
+            otherText
+            selectedOptions {
+              edges {
+                node {
+                  id
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
