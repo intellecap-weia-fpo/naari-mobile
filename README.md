@@ -14,6 +14,8 @@ flutter pub get
 flutter run --dart-define=NAARI_API_BASE=http://10.0.2.2:8000
 ```
 
+The iOS build is tested with Flutter 3.41. The Android project still uses older Gradle and Android Gradle Plugin versions, which Flutter 3.41 rejects, so Android builds need those upgraded first.
+
 Android emulators reach a server on your computer at `10.0.2.2`. Release builds need your own signing setup; no signing keys are in this repository.
 
 ## Tests
