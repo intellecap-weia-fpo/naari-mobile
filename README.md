@@ -27,7 +27,7 @@ flutter test
 
 ## Community
 
-See the [privacy notice](PRIVACY.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md).
+See the [server overview](https://github.com/intellecap-weia-fpo/naari/blob/main/docs/overview.md), [content policy](https://github.com/intellecap-weia-fpo/naari/blob/main/docs/content-policy.md), [privacy notice](PRIVACY.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md).
 
 ## Copyright and licence
 
